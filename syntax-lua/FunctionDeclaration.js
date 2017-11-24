@@ -13,7 +13,12 @@ function get() {
             return sigName(node.identifier);
         },
         ["identifier", "parameters", "body"],
-        undefined, true);
+        (node) => {
+            return utils.safeName(node);
+        },
+        (node, syntax, createScope) => {
+            createScope(sigName(node.identifier), node.identifier.loc, node.parameters.length);
+        });
 }
 
 function sigName(node) {
@@ -23,9 +28,9 @@ function sigName(node) {
         if (node.base) {
             _sigNameHelper(node.base);
             names.push(node.indexer || ".");
-            names.push(utils_2.safeName(node));
+            names.push(utils.safeName(node));
         } else {
-            names.push(utils_2.safeName(node));
+            names.push(utils.safeName(node));
         }
     }
 

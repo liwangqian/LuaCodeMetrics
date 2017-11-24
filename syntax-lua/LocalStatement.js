@@ -12,7 +12,7 @@ function get() {
         (node) => {
             return node.variables.length;
         },
-        0, undefined,
+        0, "local",
         (node) => {
             return utils.safeName(node.variables[0]);
         }, ["variables", "init"]);

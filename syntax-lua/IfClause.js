@@ -8,5 +8,5 @@ var traits = require('escomplex-traits'),
 exports.get = get;
 
 function get() {
-    return traits.actualise(1, 0, "if", undefined, ["condition", "body"]);
+    return traits.actualise(1, 1, "if", undefined, ["condition", "body"]);
 }
