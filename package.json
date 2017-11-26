@@ -1,0 +1,20 @@
+{
+    "name": "luacodemetrics",
+    "description": "LUA cyclomatic complexity report generator",
+    "license": "MIT",
+    "homepage": "https://github.com/liwangqian/luacodemetrics",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/liwangqian/luacodemetrics.git"
+    },
+    "version": "0.1.0",
+    "preferGlobal": true,
+    "main": "./index",
+    "dependencies": {
+        "bluebird": "^3.3.3",
+        "luaparse": "^0.2.1",
+        "escomplex": "0.2.5",
+        "check-types": "~4",
+        "escomplex-traits": "0.2.x"
+    }
+}

@@ -2,8 +2,7 @@
 
 'use strict';
 
-var traits = require('escomplex-traits'),
-    utils = require('../utils');
+var traits = require('escomplex-traits');
 
 exports.get = get;
 
