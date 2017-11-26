@@ -7,5 +7,5 @@ var traits = require('escomplex-traits');
 exports.get = get;
 
 function get() {
-    return traits.actualise(0, 0, undefine, 'nil');
+    return traits.actualise(0, 0);
 }

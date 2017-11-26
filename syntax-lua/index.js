@@ -9,7 +9,7 @@ var fs = require('fs'),
 
 exports.get = getSyntax;
 
-function getSyntax (settings) {
+function getSyntax(settings) {
     var syntax = {}, name;
 
     if (loaded === false) {
@@ -26,7 +26,7 @@ function getSyntax (settings) {
     return syntax;
 }
 
-function loadSyntaxModules () {
+function loadSyntaxModules() {
     var fileNames, i, fileName, components;
 
     fileNames = getSyntaxFileNames();
@@ -41,11 +41,11 @@ function loadSyntaxModules () {
     }
 }
 
-function getSyntaxFileNames () {
+function getSyntaxFileNames() {
     return fs.readdirSync(__dirname);
 }
 
-function isSyntaxDefinition (fileName, components) {
+function isSyntaxDefinition(fileName, components) {
     if (fs.statSync(pathify(__dirname, fileName)).isFile()) {
         return components.length === 2 && components[0] !== 'index' && components[1] === 'js';
     }
@@ -53,16 +53,15 @@ function isSyntaxDefinition (fileName, components) {
     return false;
 }
 
-function pathify (directory, fileName) {
+function pathify(directory, fileName) {
     return directory + '/' + fileName;
 }
 
-function loadSyntaxModule (name) {
+function loadSyntaxModule(name) {
     syntaxModules[name] = require(pathify('.', name));
 }
 
-function setSyntax (syntax, name, settings) {
-    syntax[name] = syntaxModules[name].parse;
-    // console.log(name, syntax[name]);
+function setSyntax(syntax, name, settings) {
+    syntax[name] = syntaxModules[name].get(settings);
 }
 

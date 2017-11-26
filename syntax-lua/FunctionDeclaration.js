@@ -17,7 +17,7 @@ function get() {
             return utils.safeName(node);
         },
         (node, syntax, createScope) => {
-            createScope(sigName(node.identifier), node.identifier.loc, node.parameters.length);
+            createScope(sigName(node.identifier), node.loc, node.parameters.length);
         });
 }
 
@@ -25,7 +25,7 @@ function sigName(node) {
     let names = [];
 
     function _sigNameHelper(node) {
-        if (node.base) {
+        if (node && node.base) {
             _sigNameHelper(node.base);
             names.push(node.indexer || ".");
             names.push(utils.safeName(node));
